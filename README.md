@@ -26,6 +26,7 @@ Siga os passos abaixo para configurar e executar o projeto.
 ### Pré-requisitos
 
 -   Python 3.8 ou superior
+-   Pip para instalação de pacotes
 -   **Wireshark** instalado, com o **TShark** acessível nas variáveis de ambiente (PATH) do sistema.
     -   *Dica: Durante a instalação do Wireshark no Windows, certifique-se de marcar a opção para adicionar o TShark ao PATH.*
 
