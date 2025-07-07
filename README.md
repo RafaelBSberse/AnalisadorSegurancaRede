@@ -14,8 +14,8 @@ O sistema é capaz de detectar e alertar sobre os seguintes padrões de ataque:
 
 O projeto segue uma arquitetura modular para separar as responsabilidades e garantir um código limpo e de fácil manutenção:
 
--   **`main.py`**: O orquestrador principal, responsável pela inicialização e pelo loop de captura.
--   **`analysis_engine.py`**: O cérebro da aplicação, que gerencia o estado da análise e despacha os pacotes para os detectores.
+-   **`main.py`**: Responsável pela inicialização e pelo loop de captura.
+-   **`analysis_engine.py`**: Que gerencia o estado da análise e despacha os pacotes para os detectores.
 -   **`detectors.py`**: Contém a lógica pura e especializada para cada tipo de detecção.
 -   **`logger.py`**: Módulo dedicado exclusivamente a formatar e escrever os alertas no arquivo de log.
 
