@@ -21,7 +21,7 @@ def check_arp_spoofing(packet, trusted_hosts):
                 trusted_mac = trusted_hosts[source_ip]
 
                 # Normaliza ambos os endereços MAC para um formato único antes de comparar.
-                # Formato final: tudo minúsculo e sem separadores (ex: 'c87f54534fbe').
+                # ex: 'c87f54534fbe'
                 mac_do_pacote_normalizado = source_mac.lower().replace(':', '').replace('-', '')
                 mac_confiavel_normalizado = trusted_mac.lower().replace(':', '').replace('-', '')
                 
@@ -64,7 +64,6 @@ def check_syn_flood(packet, syn_counters, threshold, window):
         # Adiciona o timestamp do pacote atual à lista daquele IP.
         syn_counters[source_ip].append(current_time)
         
-        # Lógica da "janela deslizante": remove timestamps antigos que já não importam.
         # Filtramos a lista, mantendo apenas os timestamps que estão dentro da janela de tempo.
         syn_counters[source_ip] = [ts for ts in syn_counters[source_ip] if current_time - ts < window]
         
@@ -111,7 +110,6 @@ def check_port_scan(packet, port_scan_tracker, threshold, window):
         ]
         
         # Conta o número de portas ÚNICAS na janela de tempo.
-        # Usamos um 'set' para garantir que cada porta seja contada apenas uma vez.
         scanned_ports = {record[0] for record in port_scan_tracker[tracker_key]}
         
         if len(scanned_ports) > threshold:
